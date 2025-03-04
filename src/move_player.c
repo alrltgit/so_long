@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apple <apple@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:49:23 by apple             #+#    #+#             */
-/*   Updated: 2025/03/01 17:40:42 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:21:22 by apple            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,7 @@ void	move_up(t_mlx *mlx)
 	char	*mv_str;
 
 	upper_row = get_row(mlx, mlx->data, mlx->player_y - 1);
-	if (!upper_row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	current_row = get_row(mlx, mlx->data, mlx->player_y);
-	if (!current_row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	count_stars(upper_row, mlx, mlx->player_x);
 	if (upper_row->data[mlx->player_x] == '1')
 		return ;
@@ -100,19 +88,7 @@ void	move_down(t_mlx *mlx)
 	char	*mv_str;
 
 	lower_row = get_row(mlx, mlx->data, mlx->player_y + 1);
-	if (!lower_row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	current_row = get_row(mlx, mlx->data, mlx->player_y);
-	if (!current_row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	count_stars(lower_row, mlx, mlx->player_x);
 	if (lower_row->data[mlx->player_x] == '1')
 		return ;

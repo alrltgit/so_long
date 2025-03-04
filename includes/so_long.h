@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apple <apple@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:11:35 by apple             #+#    #+#             */
-/*   Updated: 2025/03/01 16:56:47 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:27:21 by apple            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	count_maps_chars(t_mlx *mlx);
 void	check_walls(t_mlx *mlx);
 void	valid_path(t_mlx *mlx, t_state state);
 void	free_grid(char **grid, int height);
-int		dfs(t_mlx *mlx, char **grid, t_state state, int x, int y);
+int		dfs(t_mlx *mlx, t_state state, int x, int y);
 void	map_form_check(t_mlx *mlx);
 void	map_is_empty(t_mlx *mlx);
 void	check_compose(t_mlx *mlx);

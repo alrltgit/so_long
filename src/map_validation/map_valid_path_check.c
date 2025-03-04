@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   map_valid_path_check.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apple <apple@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:59:35 by apple             #+#    #+#             */
-/*   Updated: 2025/03/01 17:37:45 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:25:45 by apple            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	check_the_path(t_mlx *mlx, char **grid, t_state state, int x, int y)
+int	check_the_path(t_mlx *mlx, t_state state, int x, int y)
 {
 	while ((x >= 1 && y >= 1) && (x < state.rows && y < state.cols))
 	{
-		if (grid[x][y] == '1')
+		if (state.grid[x][y] == '1')
 		{
 			ft_printf("Error: the map doesn't have a valid path.\n");
 			mlx_destroy_display(mlx->mlx_ptr);
@@ -24,22 +24,22 @@ int	check_the_path(t_mlx *mlx, char **grid, t_state state, int x, int y)
 			free(mlx);
 			exit(1);
 		}
-		if (grid[x][y] == 'E')
+		if (state.grid[x][y] == 'E')
 			return (1);
-		if (dfs(mlx, grid, state, x - 1, y))
+		if (dfs(mlx, state, x - 1, y))
 			return (1);
-		if (dfs(mlx, grid, state, x + 1, y))
+		if (dfs(mlx, state, x + 1, y))
 			return (1);
-		if (dfs(mlx, grid, state, x, y - 1))
+		if (dfs(mlx, state, x, y - 1))
 			return (1);
-		if (dfs(mlx, grid, state, x, y + 1))
+		if (dfs(mlx, state, x, y + 1))
 			return (1);
 		return (0);
 	}
 	return (1);
 }
 
-int	dfs(t_mlx *mlx, char **grid, t_state state, int x, int y)
+int	dfs(t_mlx *mlx, t_state state, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= state.rows || y >= state.cols)
 	{
@@ -49,7 +49,7 @@ int	dfs(t_mlx *mlx, char **grid, t_state state, int x, int y)
 		free(mlx);
 		return (0);
 	}
-	return (check_the_path(mlx, grid, state, x, y));
+	return (check_the_path(mlx, state, x, y));
 }
 
 char	**map_to_arr(t_mlx *mlx, t_map *head, t_state state)
@@ -99,6 +99,6 @@ void	valid_path(t_mlx *mlx, t_state state)
 		free_map(&mlx->data);
 		free(mlx);
 	}
-	dfs(mlx, state.grid, state, state.x, state.y);
+	dfs(mlx, state, state.x, state.y);
 	free_grid(state.grid, state.cols);
 }
