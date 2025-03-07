@@ -6,7 +6,7 @@
 /*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:38:47 by alraltse          #+#    #+#             */
-/*   Updated: 2025/03/01 17:10:20 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:31:06 by alraltse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	read_map(t_mlx *mlx, int argc, char *argv[])
 	t_map	*head;
 	t_state	state;
 
-	map_exists(mlx, argc, argv);
+	if (argc != 2)
+		argc_is_not_two(mlx);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return ;

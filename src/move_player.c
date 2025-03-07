@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apple <apple@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:49:23 by apple             #+#    #+#             */
-/*   Updated: 2025/03/04 10:21:22 by apple            ###   ########.fr       */
+/*   Updated: 2025/03/05 12:32:52 by alraltse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ void	move_left(t_mlx *mlx)
 	char	*mv_str;
 
 	row = get_row(mlx, mlx->data, mlx->player_y);
-	if (!row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	next_line = row->data[mlx->player_x - 1];
 	count_stars(row, mlx, mlx->player_x - 1);
 	if (next_line == '1')
@@ -44,12 +38,6 @@ void	move_right(t_mlx *mlx)
 	char	*mv_str;
 
 	row = get_row(mlx, mlx->data, mlx->player_y);
-	if (!row)
-	{
-		ft_printf("Row is empty.\n");
-		clean_exit(mlx);
-		return ;
-	}
 	next_line = row->data[mlx->player_x + 1];
 	count_stars(row, mlx, mlx->player_x + 1);
 	if (next_line == '1')

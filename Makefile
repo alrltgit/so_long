@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apple <apple@student.42.fr>                +#+  +:+       +#+         #
+#    By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 16:11:03 by apple             #+#    #+#              #
-#    Updated: 2025/03/04 11:02:12 by apple            ###   ########.fr        #
+#    Updated: 2025/03/05 12:25:53 by alraltse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = src/game.c \
 src/move_player.c \
@@ -43,7 +43,7 @@ SO_LONG_NAME = so_long
 $(SO_LONG_NAME): $(OBJS)
 	make -C $(LIBFT_PATH)
 	make -C $(MLX_PATH)
-	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_PATH) -lft -o $(SO_LONG_NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx -lmlx -lX11 -lXext $(LIBFT_PATH)/$(LIBFT_NAME) -o $(SO_LONG_NAME)
 
 all: $(SO_LONG_NAME)
 
@@ -55,7 +55,7 @@ clean:
 fclean: clean
 	$(RM) $(LIBFT_PATH)/$(LIBFT_NAME)
 	$(RM) $(LIBFT_PATH)/ft_printf/libftprintf.a
-	$(RM) $(MLX_PATH)/$(MLX_LIB)
 	$(RM) $(SO_LONG_NAME)
+	$(RM) $(MLX_PATH)/$(MLX_LIB)
 
 re: fclean all

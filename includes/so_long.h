@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apple <apple@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:11:35 by apple             #+#    #+#             */
-/*   Updated: 2025/03/04 10:27:21 by apple            ###   ########.fr       */
+/*   Updated: 2025/03/05 12:34:26 by alraltse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 # include "../libft/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
-# define WALL_IMG "assets/img_xpm/asteroids_background.xpm"
-# define EMPTY_SPACE_IMG "assets/img_xpm/sky.xpm"
-# define EXIT_IMG "assets/img_xpm/black_hole_background.xpm"
-# define COLLECTIBLE_IMG "assets/img_xpm/star_background.xpm"
-# define PLAYER_IMG "assets/img_xpm/sky_background-1.png.xpm"
-# define PLAYER_ON_EXIT "assets/img_xpm/player_on_exit.png.xpm"
+# define WALL_IMG "textures/img_xpm/asteroids_background.xpm"
+# define EMPTY_SPACE_IMG "textures/img_xpm/sky.xpm"
+# define EXIT_IMG "textures/img_xpm/black_hole_background.xpm"
+# define COLLECTIBLE_IMG "textures/img_xpm/star_background.xpm"
+# define PLAYER_IMG "textures/img_xpm/sky_background-1.png.xpm"
+# define PLAYER_ON_EXIT "textures/img_xpm/player_on_exit.png.xpm"
 
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
@@ -95,14 +95,13 @@ void	count_stars(t_map *row, t_mlx *mlx, int idx);
 void	count_collect(t_mlx *mlx);
 void	count_maps_chars(t_mlx *mlx);
 void	check_walls(t_mlx *mlx);
-void	valid_path(t_mlx *mlx, t_state state);
+int		valid_path(t_mlx *mlx, t_state state);
 void	free_grid(char **grid, int height);
-int		dfs(t_mlx *mlx, t_state state, int x, int y);
 void	map_form_check(t_mlx *mlx);
 void	map_is_empty(t_mlx *mlx);
 void	check_compose(t_mlx *mlx);
 void	check_map(t_mlx *mlx, t_state state);
-void	map_exists(t_mlx *mlx, int argc, char *argv[]);
+void	argc_is_not_two(t_mlx *mlx);
 void	clean_exit(t_mlx *mlx);
 
 #endif

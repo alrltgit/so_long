@@ -6,7 +6,7 @@
 /*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:06:25 by apple             #+#    #+#             */
-/*   Updated: 2025/03/01 16:48:51 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:37:40 by alraltse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	handle_key(int keycode, t_mlx *mlx)
 		move_down(mlx);
 	else if (keycode == KEY_ESC)
 	{
-		ft_printf("Closing the window...\n");
 		clean_exit(mlx);
 		exit(0);
 	}

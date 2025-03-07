@@ -6,7 +6,7 @@
 /*   By: alraltse <alraltse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:36:36 by apple             #+#    #+#             */
-/*   Updated: 2025/03/01 17:31:47 by alraltse         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:31:15 by alraltse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,6 @@ void	argc_is_not_two(t_mlx *mlx)
 	free_map(&mlx->data);
 	free(mlx);
 	exit(1);
-}
-
-void	map_exists(t_mlx *mlx, int argc, char *argv[])
-{
-	const char	*map_1;
-	const char	*map_2;
-	const char	*map_not_valid;
-	const char	*map_small;
-
-	map_1 = "maps/map_1.ber";
-	map_2 = "maps/map_2.ber";
-	map_not_valid = "maps/map_not_valid.ber";
-	map_small = "maps/map_small.ber";
-	if (argc != 2)
-		argc_is_not_two(mlx);
-	else
-	{
-		if (ft_strncmp(argv[1], map_1, ft_strlen(map_1)) != 0
-			&& ft_strncmp(argv[1], map_2, ft_strlen(map_2)) != 0
-			&& ft_strncmp(argv[1], map_not_valid, ft_strlen(map_not_valid)) != 0
-			&& ft_strncmp(argv[1], map_small, ft_strlen(map_small)) != 0)
-		{
-			ft_printf("Error: the map doesn't exist.\n");
-			mlx_destroy_display(mlx->mlx_ptr);
-			free_map(&mlx->data);
-			free(mlx);
-			exit(1);
-		}
-	}
 }
 
 void	parse_map(t_mlx *mlx, t_map *temp)
